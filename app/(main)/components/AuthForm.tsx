@@ -8,12 +8,13 @@ import { BsGithub, BsGoogle } from "react-icons/bs";
 import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
 import AuthSocialButton from "./AuthSocialButton";
+import axios from "axios";
 
 type Variant = "LOGIN" | "REGISTER";
 
 export default function AuthForm() {
   const [variant, setVariant] = useState<Variant>("LOGIN");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleVariant = useCallback(() => {
     if (variant == "LOGIN") {
@@ -39,7 +40,7 @@ export default function AuthForm() {
     setIsLoading(true);
 
     if (variant == "REGISTER") {
-      // Axios Register
+      axios.post("/api/register", data);
     }
     if (variant == "LOGIN") {
       // NextAuth SignIn
