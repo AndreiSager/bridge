@@ -14,16 +14,14 @@ export default function DesktopSidebar() {
       <nav className="mt-4 flex flex-col justify-between">
         <ul role="list" className="flex flex-col items-center space-y-1">
           {routes.map(({ label, href, icon, active, onClick }) => (
-            <li>
-              <DesktopItem
-                key={label}
-                href={href}
-                label={label}
-                icon={icon}
-                active={active}
-                onClick={onClick}
-              />
-            </li>
+            <DesktopItem
+              key={label}
+              href={href}
+              label={label}
+              icon={icon}
+              active={active}
+              onClick={onClick}
+            />
           ))}
         </ul>
       </nav>
