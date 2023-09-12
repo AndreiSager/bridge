@@ -34,7 +34,7 @@ export default function MobileItem({
         active && "bg-gray-100 text-black"
       )}
     >
-      <Icon classname="h-6 aspect-square" />
+      <Icon className="h-6 aspect-square" />
       <span className="sr-only">{label}</span>
     </Link>
   );

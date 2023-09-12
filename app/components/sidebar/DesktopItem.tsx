@@ -34,7 +34,7 @@ export default function DesktopItem({
           active && "bg-gray-100 text-black"
         )}
       >
-        <Icon classname="h-6 aspect-square shrink-0" />
+        <Icon className="h-6 aspect-square shrink-0" />
         <span className="sr-only">{label}</span>
       </Link>
     </li>
