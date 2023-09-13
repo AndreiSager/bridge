@@ -15,7 +15,7 @@ export default function useOtherUser(
       (user) => user.email !== currentUserEmail
     );
 
-    return otherUser;
+    return otherUser[0];
   }, [session?.data?.user?.email, conversation.users]);
 
   return otherUser;
