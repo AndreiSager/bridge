@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  FieldValue,
-  FieldValues,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { HiPaperAirplane, HiPhoto } from "react-icons/hi2";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
@@ -14,7 +9,7 @@ import useConversation from "@/app/hooks/useConversation";
 import MessageInput from "./MessageInput";
 
 export default function Form() {
-  const conversationId = useConversation();
+  const { conversationId } = useConversation();
 
   const {
     register,
@@ -30,13 +25,16 @@ export default function Form() {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setValue("message", "", { shouldValidate: true });
 
-    axios.post("/api/messages", { ...data, conversationId });
+    axios.post("/api/messages", {
+      ...data,
+      conversationId: conversationId,
+    });
   };
 
   const handleUpload = (result: any) => {
     axios.post("/api/messages", {
-      image: result?.info?.secure_url,
-      conversationId,
+      image: result.info.secure_url,
+      conversationId: conversationId,
     });
   };
 
