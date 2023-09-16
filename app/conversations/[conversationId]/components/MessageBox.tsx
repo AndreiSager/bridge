@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
+
 import { useSession } from "next-auth/react";
 
 import { FullMessageType } from "@/app/types";
 import clsx from "clsx";
 import Avatar from "@/app/components/Avatar";
+import { format } from "date-fns";
 
 interface MessageBoxProps {
   data: FullMessageType;
@@ -15,7 +18,7 @@ export default function MessageBox({ data, isLast }: MessageBoxProps) {
   const session = useSession();
 
   const isOwn = session?.data?.user?.email === data?.sender?.email;
-  const seenLIst = (data.seen || [])
+  const seenList = (data.seen || [])
     .filter((user) => user.email !== data?.sender?.email)
     .map((user) => user.name)
     .join(", ");
@@ -35,9 +38,29 @@ export default function MessageBox({ data, isLast }: MessageBoxProps) {
         <Avatar user={data.sender} />
       </div>
       <div className={body}>
-        <div className="flex items-center">
+        <div className="flex items-center gap-1">
           <div className="text-sm text-gray-500">{data.sender.name}</div>
+
+          <div className="text-sm text-gray-400">
+            {format(new Date(data.createdAt), "p")}
+          </div>
         </div>
+        <div className={message}>
+          {data.image ? (
+            <Image
+              src={data.image}
+              alt="Image"
+              width={288}
+              height={288}
+              className="object-cver cursor-pointer hover:scale-110 transition translate"
+            />
+          ) : (
+            <div>{data.body}</div>
+          )}
+        </div>
+        {isLast && isOwn && seenList.length > 0 && (
+          <div className="text-xs font-light text-gray-500">{`Seen by: ${seenList}`}</div>
+        )}
       </div>
     </div>
   );
