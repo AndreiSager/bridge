@@ -75,7 +75,9 @@ export default function AuthForm() {
             router.push("/conversations");
           }
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
 
@@ -93,7 +95,9 @@ export default function AuthForm() {
           router.push("/conversations");
         }
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
