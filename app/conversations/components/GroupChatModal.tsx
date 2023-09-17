@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 import Modal from "../../components/Modal";
 import Input from "@/app/components/inputs/Input";
 import Select from "@/app/components/inputs/Select";
+import Button from "@/app/components/Button";
 
 interface GroupChatModalProps {
   isOpen?: boolean;
@@ -87,12 +88,25 @@ export default function GroupChatModal({
                   label: user.name,
                 }))}
                 onChange={(value) => {
-                  setValue(members, value, { shouldValidate: true });
+                  setValue("members", value, { shouldValidate: true });
                 }}
                 value={members}
               />
             </div>
           </div>
+        </div>
+        <div className="mt-6 flex items-center justify-end gap-x-6">
+          <Button
+            disabled={isLoading}
+            onClick={onClose}
+            type="button"
+            secondary
+          >
+            Cancel
+          </Button>
+          <Button disabled={isLoading} type="submit">
+            Create
+          </Button>
         </div>
       </form>
     </Modal>
