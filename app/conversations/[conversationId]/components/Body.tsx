@@ -42,11 +42,25 @@ export default function Body({ initialMessages }: BodyProps) {
       bottomRef?.current?.scrollIntoView();
     };
 
+    const updateMessageHandler = (newMesssage: FullMessageType) => {
+      setMessages((current) =>
+        current.map((currentMessage) => {
+          if (currentMessage.id === newMesssage.id) {
+            return newMesssage;
+          }
+
+          return currentMessage;
+        })
+      );
+    };
+
     pusherClient.bind("messages:new", messageHandler);
+    pusherClient.bind("message:update", updateMessageHandler);
 
     return () => {
       pusherClient.unsubscribe(conversationId);
       pusherClient.unbind("messages:new", messageHandler);
+      pusherClient.unbind("message:update", updateMessageHandler);
     };
   }, [conversationId]);
 
