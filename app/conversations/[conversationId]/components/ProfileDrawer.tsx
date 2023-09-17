@@ -46,12 +46,12 @@ export default function ProfileDrawer({
   return (
     <>
       <ConfirmModal isOpen={confirmOpen} onClose={() => setConfirmOpen(false)}>
-        <div className="bg-hite p-5">
+        <div className="bg-white p-5">
           <p>Hello Modal!</p>
         </div>
       </ConfirmModal>
       <Transition.Root show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-40" onClose={onClose}>
+        <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-500"

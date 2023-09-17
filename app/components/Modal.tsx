@@ -43,7 +43,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                     onClick={onClose}
                   >
                     <span className="sr-only">Close</span>
-                    <IoClose className="w-6 aspect-square" />
+                    <IoClose className="w-6 aspect-square" aria-hidden="true" />
                   </button>
                 </div>
                 {children}
