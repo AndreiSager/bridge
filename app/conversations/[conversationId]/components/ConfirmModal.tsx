@@ -15,7 +15,6 @@ import Button from "@/app/components/Button";
 interface ConfirmModalProps {
   isOpen?: boolean;
   onClose: () => void;
-  children?: React.ReactNode;
 }
 
 export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
