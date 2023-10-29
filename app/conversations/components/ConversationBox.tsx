@@ -84,7 +84,7 @@ export default function ConversationBox({
           <div className="flex justify-between items-center">
             <p
               className={clsx(
-                "text-md !font-bold group-hover:text-white",
+                "text-sm !font-bold group-hover:text-white",
                 selected ? "text-white" : "text-gray-900"
               )}
             >
@@ -103,12 +103,12 @@ export default function ConversationBox({
           </div>
           <p
             className={
-              (clsx("truncate text-sm "),
+              (clsx("text-sm truncate"),
               selected
                 ? "text-white"
                 : "text-white" && hasSeen
                 ? "text-gray-500 group-hover:text-white"
-                : "text-black font-medium")
+                : "text-black")
             }
           >
             {lastMessageText}
