@@ -24,7 +24,7 @@ export default function Avatar({ user }: AvatarProps) {
         />
       </div>
       {isActive && (
-        <span className="absolute block rounded-full bg-green-500 ring-2 ring-white top-0 right-0 h-2 md:h-3 aspect-square" />
+        <span className="absolute block rounded-full bg-online-green ring-2 ring-white top-0 right-0 h-2 md:h-3 aspect-square" />
       )}
     </div>
   );
