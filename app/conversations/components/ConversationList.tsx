@@ -107,18 +107,20 @@ export default function ConversationList({
             </div>
             <div
               onClick={() => setIsModalOpen(true)}
-              className="rounded-full p-[10px] hover:bg-gray-100 text-unselected-gray cursor-pointer transition flex justify-center items-center hover:text-blue-1"
+              className="rounded-full p-[10px] hover:bg-gray-100 text-unselected-gray cursor-pointer transition flex justify-center items-center hover:text-blue-2"
             >
               <BiSolidMessageAdd size={25} />
             </div>
           </div>
-          {items.map((item) => (
-            <ConversationBox
-              key={item.id}
-              data={item}
-              selected={conversationId === item.id}
-            />
-          ))}
+          <div className="flex flex-col gap-[10px]">
+            {items.map((item) => (
+              <ConversationBox
+                key={item.id}
+                data={item}
+                selected={conversationId === item.id}
+              />
+            ))}
+          </div>
         </div>
       </aside>
     </>
