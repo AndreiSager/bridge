@@ -25,8 +25,6 @@ export default function LeaveModal({ isOpen, onClose }: LeaveModalProps) {
   const onLeave = useCallback(() => {
     setIsLoading(true);
 
-    // Disconnect user id from conversation userIds list.
-
     axios
       .delete(`/api/conversations/${conversationId}`)
       .then(() => {
