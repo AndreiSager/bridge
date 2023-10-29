@@ -81,7 +81,7 @@ export default function ConversationBox({
       )}
       <div className="min-w-0 flex-1 ">
         <div className="focus:outline-none">
-          <div className="flex justify-between items-center mb-1">
+          <div className="flex justify-between items-center">
             <p
               className={clsx(
                 "text-md !font-bold group-hover:text-white",
