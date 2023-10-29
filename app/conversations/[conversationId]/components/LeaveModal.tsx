@@ -22,8 +22,10 @@ export default function LeaveModal({ isOpen, onClose }: LeaveModalProps) {
   const { conversationId } = useConversation();
   const [isLoading, setIsLoading] = useState(false);
 
-  const onDelete = useCallback(() => {
+  const onLeave = useCallback(() => {
     setIsLoading(true);
+
+    // Disconnect user id from conversation userIds list.
 
     axios
       .delete(`/api/conversations/${conversationId}`)
@@ -55,14 +57,14 @@ export default function LeaveModal({ isOpen, onClose }: LeaveModalProps) {
           </Dialog.Title>
           <div className="mt-2 ">
             <p className="text-sm text-gray-500">
-              Are you sure you want to delete this conversation? This action
-              cannot be reverted!
+              Are you sure you want to leave this conversation? This action can
+              be reverted!
             </p>
           </div>
         </div>
       </div>
       <div className="mt-5 sm:mt-4 flex sm:flex-row-reverse gap-2">
-        <Button disabled={isLoading} danger onClick={onDelete}>
+        <Button disabled={isLoading} danger onClick={onLeave}>
           Delete
         </Button>
         <Button disabled={isLoading} secondary onClick={onClose}>
