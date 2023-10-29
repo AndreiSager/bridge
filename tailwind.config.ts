@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
 const config: Config = {
   content: [
@@ -7,14 +8,15 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
-    colors: {
-      "blue-1": "#024089",
-      "blue-2": "#004DA9",
-      "orange-1": "#FA841A",
-      "orange-2": "#FDA300",
-      "yellow-1": "#FFC619",
-      "online-green": "#5ED85C",
+    extend: {
+      colors: {
+        "blue-1": "#024089",
+        "blue-2": "#004DA9",
+        "orange-1": "#FA841A",
+        "orange-2": "#FDA300",
+        "yellow-1": "#FFC619",
+        "online-green": "#5ED85C",
+      },
     },
   },
   plugins: [
