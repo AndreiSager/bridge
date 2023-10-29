@@ -8,8 +8,8 @@ export default function Home() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md ">
         <Image
           src={"/images/logo.png"}
-          width={48}
-          height={48}
+          width={50}
+          height={50}
           alt="Logo"
           className="mx-auto w-auto"
         />
@@ -17,7 +17,7 @@ export default function Home() {
           Sign to your account
         </h2>
       </div>
-      <AuthForm /> 
+      <AuthForm />
     </main>
   );
 }
