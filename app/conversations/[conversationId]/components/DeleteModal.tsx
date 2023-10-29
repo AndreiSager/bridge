@@ -12,12 +12,12 @@ import useConversation from "@/app/hooks/useConversation";
 import Modal from "@/app/components/Modal";
 import Button from "@/app/components/Button";
 
-interface ConfirmModalProps {
+interface DeleteModalProps {
   isOpen?: boolean;
   onClose: () => void;
 }
 
-export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
+export default function DeleteModal({ isOpen, onClose }: DeleteModalProps) {
   const router = useRouter();
   const { conversationId } = useConversation();
   const [isLoading, setIsLoading] = useState(false);

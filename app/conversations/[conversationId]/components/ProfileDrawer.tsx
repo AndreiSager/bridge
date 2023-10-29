@@ -9,10 +9,11 @@ import { IoClose, IoTrash } from "react-icons/io5";
 
 import useOtherUser from "@/app/hooks/useOtherUser";
 import Avatar from "@/app/components/Avatar";
-import ConfirmModal from "./ConfirmModal";
+import DeleteModal from "./DeleteModal";
 import AvatarGroup from "@/app/components/AvatarGroup";
 import useActiveList from "@/app/hooks/useActiveList";
 import MemberList from "./MemberList";
+import LeaveModal from "./LeaveModal";
 // import MemberList from "./MemberList";
 
 interface ProfileDrawerProps {
@@ -29,7 +30,8 @@ export default function ProfileDrawer({
   data,
 }: ProfileDrawerProps) {
   const otherUser = useOtherUser(data);
-  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [leaveOpen, setLeaveOpen] = useState(false);
   const { members } = useActiveList();
   const isActive = members.indexOf(otherUser?.email!) !== -1;
 
@@ -51,10 +53,8 @@ export default function ProfileDrawer({
 
   return (
     <>
-      <ConfirmModal
-        isOpen={confirmOpen}
-        onClose={() => setConfirmOpen(false)}
-      />
+      <DeleteModal isOpen={deleteOpen} onClose={() => setDeleteOpen(false)} />
+      <LeaveModal isOpen={leaveOpen} onClose={() => setLeaveOpen(false)} />
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
@@ -111,7 +111,7 @@ export default function ProfileDrawer({
                           </div>
                           <div className="flex gap-10 my-8">
                             <div
-                              onClick={() => setConfirmOpen(true)}
+                              onClick={() => setDeleteOpen(true)}
                               className="flex flex-col gap-3 items-center cursor-pointer hover:opacity-75"
                             >
                               <div className="w-10 aspect-square bg-neutral-100 rounded-full flex items-center justify-center">
@@ -125,13 +125,28 @@ export default function ProfileDrawer({
                           <div className="w-full py-5 sm:py-0">
                             <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
                               {data.isGroup && (
-                                <div>
+                                <div className="flex flex-col gap-6">
                                   <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
                                     Members
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
                                     <MemberList members={data.users} />
                                   </dd>
+                                </div>
+                              )}
+                              {data.isGroup && (
+                                <div className="flex gap-10 my-8">
+                                  <div
+                                    onClick={() => setLeaveOpen(true)}
+                                    className="flex flex-row gap-3 items-center cursor-pointer hover:opacity-75"
+                                  >
+                                    <div className="w-10 aspect-square bg-neutral-100 rounded-full flex items-center justify-center">
+                                      <IoTrash size={20} />
+                                    </div>
+                                    <div className="text-sm font-light text-neutral-600">
+                                      Leave Group
+                                    </div>
+                                  </div>
                                 </div>
                               )}
                               {!data.isGroup && (
