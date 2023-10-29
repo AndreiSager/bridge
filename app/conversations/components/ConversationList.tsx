@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import clsx from "clsx";
-import { MdOutlineGroupAdd } from "react-icons/md";
+import { BiSolidMessageAdd } from "react-icons/bi";
 import { User } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { find } from "lodash";
@@ -96,20 +96,20 @@ export default function ConversationList({
       />
       <aside
         className={clsx(
-          "fixed inset-y-0 pb-0 lg:pb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-[1px] border-gray-200",
+          "fixed inset-y-0 pb-0 lg:pb-0 lg:left-[60px] lg:w-80 lg:block overflow-y-auto border-r-[1px] border-gray-200",
           isOpen ? "hidden" : "block w-full left-0"
         )}
       >
         <div className="px-5">
-          <div className="flex justify-between mb-4 pt-4">
+          <div className="flex justify-between items-center mb-4 pt-4">
             <div className="text-2xl font-bold text-neutral-800">
-              Private Bridges
+              Conversations
             </div>
             <div
               onClick={() => setIsModalOpen(true)}
-              className="rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition"
+              className="rounded-full p-[10px] hover:bg-gray-100 text-unselected-gray cursor-pointer transition flex justify-center items-center hover:text-blue-1"
             >
-              <MdOutlineGroupAdd size={20} />
+              <BiSolidMessageAdd size={25} />
             </div>
           </div>
           {items.map((item) => (
