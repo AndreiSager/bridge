@@ -70,8 +70,8 @@ export default function ConversationBox({
     <div
       onClick={handleClick}
       className={clsx(
-        "w-full relative flex items-center space-x-3 hover:bg-neutral-100 rouded-lg transition cursor-pointer p-3",
-        selected ? "bg-neutral-100" : "bg-white"
+        "w-full relative flex items-center space-x-3 hover:bg-blue-2 rouded-lg transition cursor-pointer p-3 rounded-xl group",
+        selected ? "bg-blue-2" : "bg-white"
       )}
     >
       {data.isGroup ? (
@@ -82,19 +82,33 @@ export default function ConversationBox({
       <div className="min-w-0 flex-1 ">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">
-            <p className="text-md font-medium text-gray-900">
+            <p
+              className={clsx(
+                "text-md !font-bold group-hover:text-white",
+                selected ? "text-white" : "text-gray-900"
+              )}
+            >
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (
-              <p className="text-xs text-gray-400 font-light">
+              <p
+                className={clsx(
+                  "text-xs font-light group-hover:text-white",
+                  selected ? "text-white" : "text-gray-400"
+                )}
+              >
                 {format(new Date(lastMessage.createdAt), "p")}
               </p>
             )}
           </div>
           <p
             className={
-              (clsx("truncate text-sm"),
-              hasSeen ? "text-gray-500" : "text-black font-medium")
+              (clsx("truncate text-sm "),
+              selected
+                ? "text-white"
+                : "text-white" && hasSeen
+                ? "text-gray-500 group-hover:text-white"
+                : "text-black font-medium")
             }
           >
             {lastMessageText}
