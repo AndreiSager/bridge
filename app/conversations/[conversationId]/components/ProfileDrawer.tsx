@@ -12,6 +12,8 @@ import Avatar from "@/app/components/Avatar";
 import ConfirmModal from "./ConfirmModal";
 import AvatarGroup from "@/app/components/AvatarGroup";
 import useActiveList from "@/app/hooks/useActiveList";
+import MemberList from "./MemberList";
+// import MemberList from "./MemberList";
 
 interface ProfileDrawerProps {
   isOpen: boolean;
@@ -101,6 +103,7 @@ export default function ProfileDrawer({
                             ) : (
                               <Avatar user={otherUser} />
                             )}
+                            {data.users[0].name}
                           </div>
                           <div>{title}</div>
                           <div className="text-sm text-gray-500">
@@ -124,12 +127,10 @@ export default function ProfileDrawer({
                               {data.isGroup && (
                                 <div>
                                   <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
-                                    Emails
+                                    Members
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
-                                    {data.users
-                                      .map((user) => user.email)
-                                      .join(", ")}
+                                    <MemberList members={data.users} />
                                   </dd>
                                 </div>
                               )}

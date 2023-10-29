@@ -61,7 +61,7 @@ export default function MessageBox({ data, isLast }: MessageBoxProps) {
               alt="Image"
               width={288}
               height={288}
-              className="object-cver cursor-pointer hover:scale-110 transition translate"
+              className="object-cover cursor-pointer hover:scale-110 transition translate"
             />
           ) : (
             <div>{data.body}</div>
