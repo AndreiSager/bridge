@@ -16,7 +16,7 @@ export default function Avatar({ user }: AvatarProps) {
 
   return (
     <div className="relative">
-      <div className="flex justify-center items-center relative inline-block rounded-full overflow-hidden h-9 md:h-11 aspect-square">
+      <div className="flex justify-center items-center relative rounded-full overflow-hidden h-9 md:h-11 aspect-square">
         <Image
           src={user?.image || "/images/placeholder.jpg"}
           fill
