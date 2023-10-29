@@ -16,6 +16,7 @@ const config: Config = {
         "orange-2": "#FDA300",
         "yellow-1": "#FFC619",
         "online-green": "#5ED85C",
+        "unselected-gray": "#828282",
       },
     },
   },
