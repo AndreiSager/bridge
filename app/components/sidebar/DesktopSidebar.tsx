@@ -26,7 +26,7 @@ export default function DesktopSidebar({ currentUser }: DesktopSidebarProps) {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />
-      <div className="hidden lg:fixed lg: inset-y-0 lg:left-0 lg:z-40 lg:w-20 xl:px-6 lg:overflow-auto lg:bg-white lg:border-r-[1px] lg:border-r-slate-100 lg:pb-4 lg:flex lg:flex-col justify-between max-w-[60px]">
+      <div className="hidden lg:fixed lg: inset-y-0 lg:left-0 lg:z-40 lg:w-20 xl:px-6 lg:overflow-auto lg:bg-white lg:border-r-[1px] lg:border-r-slate-200 lg:pb-4 lg:flex lg:flex-col justify-between max-w-[60px]">
         <nav className="mt-4 flex flex-col justify-between">
           <ul role="list" className="flex flex-col items-center gap-[10px]">
             <Image
