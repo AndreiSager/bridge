@@ -96,7 +96,7 @@ export default function ConversationList({
       />
       <aside
         className={clsx(
-          "lg:block w-full",
+          "lg:block w-full h-full",
           isOpen ? "hidden" : "block w-full left-0"
         )}
       >
