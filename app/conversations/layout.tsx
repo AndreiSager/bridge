@@ -15,7 +15,7 @@ export default async function ConversationLayout({
   return (
     // @ts-ignore
     <Sidebar>
-      <div className="flex flex-col overflow-hidden fixed inset-y-0 pb-0 lg:pb-0 lg:left-[60px] w-full lg:w-[300px] lg:block border-r-[1px] border-gray-20 gap-[10px]">
+      <div className="flex flex-col overflow-hidden fixed inset-y-0 pb-0 lg:pb-0 lg:left-[60px] w-full lg:w-[300px] lg:block border-r-[1px] border-gray-200 gap-[10px]">
         <ConversationHeader users={users} initialItems={conversations} />
         <ConversationList users={users} initialItems={conversations} />
       </div>

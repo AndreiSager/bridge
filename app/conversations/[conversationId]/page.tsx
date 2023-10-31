@@ -15,7 +15,7 @@ export default async function ConversationId({ params }: { params: IParams }) {
 
   if (!conversation) {
     return (
-      <div className="lg:pl-80 h-full">
+      <div className="lg:pl-[280px] h-full">
         <div className="h-full flex flex-col">
           <EmptyState />
         </div>
@@ -24,7 +24,7 @@ export default async function ConversationId({ params }: { params: IParams }) {
   }
 
   return (
-    <div className="lg:pl-80 h-full">
+    <div className="lg:pl-[280px] h-full">
       <div className="h-full flex flex-col">
         <Header conversation={conversation} />
         <Body initialMessages={messages} />

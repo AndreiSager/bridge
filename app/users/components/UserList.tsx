@@ -10,7 +10,7 @@ interface UserListProps {
 
 export default function UserList({ items }: UserListProps) {
   return (
-    <aside className="fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-200 block w-full left-0">
+    <aside className="flex flex-col overflow-hidden fixed inset-y-0 pb-0 lg:pb-0 lg:left-[60px] w-full lg:w-[300px] lg:block border-r-[1px] border-gray-200 gap-[10px]">
       <div className="px-5">
         <div className="flex flex-col">
           <div className="text-2xl font-bold text-neutral-800 py-4">Bridge</div>
