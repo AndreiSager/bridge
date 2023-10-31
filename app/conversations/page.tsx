@@ -10,7 +10,10 @@ export default function Home() {
 
   return (
     <div
-      className={clsx("lg:pl-80 h-full lg:block ", isOpen ? "block" : "hidden")}
+      className={clsx(
+        "lg:pl-[280px] h-full lg:block ",
+        isOpen ? "block" : "hidden"
+      )}
     >
       <EmptyState />
     </div>
