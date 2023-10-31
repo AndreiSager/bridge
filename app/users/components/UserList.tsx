@@ -14,9 +14,11 @@ export default function UserList({ items }: UserListProps) {
       <div className="flex justify-between items-center mb-2 pt-[23px]">
         <div className="text-2xl font-bold text-neutral-800 ">Bridge</div>
       </div>
-      {items.map((item) => (
-        <UserBox key={item.id} data={item} />
-      ))}
+      <div className="flex flex-col gap-[10px]">
+        {items.map((item) => (
+          <UserBox key={item.id} data={item} />
+        ))}
+      </div>
     </aside>
   );
 }
